@@ -120,3 +120,108 @@ array e retorna a nova array */
 const numbers = [1, 2, 3, 4, 5];
 numbers.reverse(); //[5, 4, 3, 2, 1]   retorna a ordem invertida e altera o array
 numbers; //[5, 4, 3, 2, 1] 
+
+
+//[].splice()
+/* [].splice(index, remover, item1, item2, ...) adiciona valores na array 
+a partir do index. Remove a quantidade de itens que for passada no segundo
+parâmetro (retorna esses itens). */
+const cars = ['Ford', 'Fiat', 'VW', 'Honda']
+cars.splice(2,0, 'Fusca');
+console.log(cars); //['Ford', 'Fiat', 'Fusca', 'VW', 'Honda']
+cars.splice(2,1);
+console.log(cars); //['Ford', 'Fiat', 'VW', 'Honda']
+
+
+/* [].copyWithin(alvo, inicio, final) a partir do alvo, ele irá copiar 
+a array começando do inicio até o final e vai preencher a mesma com essa cópia. 
+Caso omita os valores de início e final, ele irá utilizar como inicio o 0 e final 
+o valor total da array.*/
+console.log(['Item1', 'Item2', 'Item3', 'Item4', "Item5"].copyWithin(2, 0, 2)); //['Item1', 'Item2', 'Item1', 'Item2', 'Item5']
+
+console.log(['Item1', 'Item2', 'Item3', 'Item4'].copyWithin(-1)); //'Item1', 'Item2', 'Item3', 'Item1'
+
+
+
+/* [].fill(valor, incio, final) preenche a array com o valor, do início até o fim.*/
+console.log(['Item1', 'Item2', 'Item3', 'Item4'].fill('Banana')); //['Banana', 'Banana', 'Banana','Banana']
+
+console.log(['Item1', 'Item2', 'Item3', 'Item4'].fill('Banana', 2)); //['Item1', 'Item2', 'Banana','Banana']
+
+console.log(['Item1', 'Item2', 'Item3', 'Item4'].fill('Banana', 1, 3)); //['Item1', 'Banana', 'Banana','Item4']
+
+
+
+/* Métodos de Acesso [].concat()
+Os métodos abaixo não modificam a array original, apenas retornam
+uma array modificada. [].concat() irá concatenar a array com o valor passado.*/
+const transporte1 = ['Barco', 'Aviao'];
+const transporte2 = ['Carro', 'Moto'];
+const transportes = transporte1.concat(transporte2);
+//['Barco, 'Aviao', 'Carro', 'Moto']
+
+const maisTransportes = [].concat(transporte1, transporte2, 'Van');
+//['Barco, 'Aviao', 'Carro', 'Moto', 'Van']
+
+const addTransporte = transportes.concat('Onibus');
+//['Barco', 'Aviao', 'Carro', 'Moto', 'Onibus']
+
+
+
+
+/* [].includes(), [].indexOf() e [].lastIndexOf()
+[].includes(valor) verifica se a array possui o valor e retorna true ou false.
+[].indexOf(valor) verifica se a array possui o valor e retorna o index do primeiro valor na array.
+[].lastIndexOf(valor) retorna o index do último. */
+const linguagens = ['html', 'css', 'js', 'php', 'python', 'js'];
+
+linguagens.includes('css'); //true           ele procura na errei se possui o valor informado se possui retorna "true"
+linguagens.includes('ryby'); //false        se não achar o valor na array retorna "false"
+linguagens.indexOf('python'); //4           ele procura na array o valor se ele encontrar vai retorna a posição do primeiro valor encontrado
+linguagens.indexOf('js'); //2
+linguagens.lastIndexOf('js'); //5           usa-se o last para pegar a ultima vez que aparece o valor informado
+
+
+/* [].join() 
+[].join(separador) junta todos os valores da array e retorna uma string com eles. 
+se você passar um valor como parâmetro, este será utilizado durante a junção de cada item da array.*/
+const langs = ['html', 'css', 'js', 'php', 'python'];
+langs.join(); //'html,css,js,php,python'
+langs.join(' '); //'html css js php python'
+langs.join(', '); //'html, css, js, php, python'
+
+
+
+let htmlString = '<h2>Título Principal</h2>';
+htmlString = htmlString.split('h2');
+htmlString = htmlString.join('h1');
+console.log(htmlString);
+
+
+/* [].slice() 
+[].slice(inicio, final) retorna os itens da array começando 
+pelo ínicio e indo até o valor de final*/
+const fruts = ['Banana', 'Pêra', 'Uva Roxa', 'Uva Verde', 'Maca'];
+fruts.slice(3); // ['Uva Verde', 'Maca']       retorna os itens da array apartir do valor informado
+fruts.slice(1, 4); // ['Pêra', 'Uva Roxa', 'Uva Verde']      retorna item da posicao informada até antes de chegar no ultimo valor informado
+
+
+//slice é muito usado para clonar array exemplo:
+
+const cloneFruts = fruts.slice();
+console.log(cloneFruts);
+
+
+//ordenacao de nuneros em uma array
+const numeros = [100, 0, 1, 2, 3, 20, 50, 10, 5];
+
+numeros.sort((a,b) => {
+
+    if(a > b) return 1;
+
+    if(a < b) return -1;
+
+    return 0;
+});
+
+console.log(numeros);
