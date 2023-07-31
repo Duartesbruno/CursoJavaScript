@@ -1,4 +1,3 @@
-
 /*
 [].forEach()
 
@@ -35,12 +34,12 @@ li.forEach((item, index) => {item.classList.add('ativa' + index)});   //se passa
 
 [].map(callback(itemAtual, indexm array)) funciona da mesma forma que o forEach(), 
 porém ao invés de retornar undefined, retorna uma nova array com valores atualizados
-de acordo com o return de cada iteração. 
+de acordo com o return de cada iteração. [sempre tem co]
 */
 
 const cars = ['BMW', 'Renault', 'VW'];
-const newCars = carros.map((item) => {
-    return 'Carro ' + item;
+const newCars = cars.map((item) => {
+    return 'Carro ' + item.toUpperCase();
 });
 console.log(newCars);
 
@@ -80,6 +79,10 @@ const tempoAula = aulas.map(aula => aula.min);
 console.log(tempoAula);
 
 
+const nomeAula = aulas.map(aula => aula.nome);
+console.log(nomeAula);
+
+
 /*
 [].reduce()
 
@@ -89,10 +92,12 @@ nessa função de callback, ele é chamado de "acumulador",
 mas é na verade apenas o retorno da iteração anterior.
 */
 
+//retorna o valor final da ultima interacao
+
 const reduceAulas = aulas.reduce((acumulador, item, index, array) => {
     console.log(acumulador, item.min, index);
     return acumulador + item.min; 
-}, 0)
+}, 0)                                                    //0 foi passado para ser o valor incial do reduce
 
 console.log(reduceAulas);
 
@@ -103,7 +108,7 @@ const numbers = [10, 25, 60, 5, 35, 10]
 
 const valorMaior = numbers.reduce((anterior, atual) => {
     console.log(anterior, atual);
-    return anterior < atual ? atual : anterior;
+    return anterior > atual ? anterior : atual;
 });
 
 console.log(valorMaior);
@@ -113,12 +118,13 @@ console.log(valorMaior);
 
 
 const listaAulas = aulas.reduce((acumulador, item, index) => {
-    console.log(item.nome)
+    // console.log(item.nome)
     acumulador[index] = item.nome;
-    console.log(acumulador)
+    // console.log(acumulador)
     return acumulador;
-}, {})
+}, {})                                                          // {} inicia com um obejto vazio
 
+console.log(listaAulas);
 
 
 /*
