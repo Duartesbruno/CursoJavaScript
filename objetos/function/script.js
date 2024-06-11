@@ -179,3 +179,23 @@ function imc(altura, peso) {
 
 const imc180 = imc.bind(null, 1.80);
 console.log(imc180(70));
+
+
+
+
+
+
+/*Programinha par ou impar */
+const parOuImpar = (valor) => {
+    if(valor === undefined || isNaN(valor)) {
+        return "Por favor, defina um valor válido."
+    }
+    else if(valor % 2 == 0) {
+        return `${valor} é PAR!`;
+    } else {
+        return `${valor} é IMPAR!`;
+    }
+}
+
+resultado = parOuImpar(2);
+console.log(resultado);
