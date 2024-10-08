@@ -1,0 +1,68 @@
+body {
+    margin: 0px;
+    background: #ccc;
+}
+
+label {
+    display: block;
+    margin-bottom: .5rem;
+}
+
+label:not(:first-child){
+    margin-top: 1rem;
+}
+
+input {
+    display: block;
+}
+
+input,
+select,
+#btnLimparCustomizacao {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:not([type="text"]) {
+    cursor: pointer;
+}
+
+.button-creator {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 200px 1fr;
+}
+
+#controles {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .875rem;
+    background: #eee;
+    padding: 1rem;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,.1);
+}
+
+.resultado {
+    align-content: center;
+}
+
+.btn {
+    cursor: pointer;
+    word-break: break-all;
+}
+
+#btnLimparCustomizacao {
+    margin-top: 8px;
+}
+
+.css-text {
+    font-family: 'IBM Plex Mono', monospace;
+    color: #333;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.css-text span {
+    display: block;
+    margin: 0 0 .5rem 0;
+}
